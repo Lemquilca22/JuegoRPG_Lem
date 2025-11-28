@@ -58,8 +58,8 @@ public class juegoRpg {
             int vidaAleatoriaEnemigo= generador.nextInt(vidaMAXEnemigo)+40;
             System.out.println("Mientras caminabas por las mazmorras un " +enemigos[numAleatorio]+ " se cruzó ante ti!");
             System.out.println("Stats enemigo"+"\nVida: "+vidaAleatoriaEnemigo);
+            System.out.println("COMIENZA EL COMBATE!!");
             while (combate) {
-                System.out.println("COMIENZA EL COMBATE!!");
                 //COMBATE
                 System.out.println("MENU DE OPCIONES");
                 System.out.println("1) Atacar\n2) Ataque Magico\n3) Objetos\n4) Rendirse");
