@@ -56,14 +56,16 @@ public class juegoRpg {
             }
         }
         boolean rpg=true;
-        boolean combate=true;
+
         while (rpg){
+            boolean combate=true;
             int numAleatorio = generador.nextInt(5);
             int vidaMAXEnemigo=60;
             int vidaAleatoriaEnemigo= generador.nextInt(vidaMAXEnemigo)+40;
             System.out.println("Mientras caminabas por las mazmorras un " +enemigos[numAleatorio]+ " se cruzó ante ti!");
             System.out.println("Stats enemigo"+"\nVida: "+vidaAleatoriaEnemigo);
             System.out.println("COMIENZA EL COMBATE!!");
+            int contadorInventario=0;
             while (combate) {
                 //COMBATE
                 int dañoEnemigo = generador.nextInt(10) + 10;
@@ -74,7 +76,7 @@ public class juegoRpg {
                 int vidaRecuperada;
                 int oroAleatorio;
                 int objetoAleatorio;
-                int contadorInventario=0;
+
                 //CODIGO DE MENU SE MUESTRA SIEMPRE DESPUES DE CADA INTERACCION
                 System.out.println("STATS: \nPS: "+ps+" PM: "+pm+" Multiplicador de daño: "+multiplicadordaño+" \nORO: "+oro);
                 System.out.println("MENU DE OPCIONES");
@@ -105,10 +107,11 @@ public class juegoRpg {
                             vidaRecuperada=generador.nextInt(25)+25;
                             ps+=vidaRecuperada;
                             objetoAleatorio=generador.nextInt(4);
-                            inventario[contadorInventario]+=recompensas[objetoAleatorio];
+                            inventario[contadorInventario]=recompensas[objetoAleatorio];
                             System.out.println("Has recibido una "+recompensas[objetoAleatorio]);
                             System.out.println("Has recuperado "+vidaRecuperada+" puntos de salud");
                             System.out.println("Vida actual: "+ps);
+                            //HACER UN CONDICIONAL SI ES QUE ESTA EN VALOR NULL Y SI ESTA LLENO QUE PASE AL SIGUIENTE PARA GUARDAR LA INFORMACION
                             contadorInventario++;
                             combate=false;
                             break;
@@ -149,7 +152,7 @@ public class juegoRpg {
                                 vidaRecuperada=generador.nextInt(25)+25;
                                 ps+=vidaRecuperada;
                                 objetoAleatorio=generador.nextInt(4);
-                                inventario[contadorInventario]+=recompensas[objetoAleatorio];
+                                inventario[contadorInventario]=recompensas[objetoAleatorio];
                                 System.out.println("Has recibido una "+recompensas[objetoAleatorio]);
                                 System.out.println("Has recuperado "+vidaRecuperada+" puntos de salud");
                                 System.out.println("Vida actual: "+ps);
@@ -185,6 +188,7 @@ public class juegoRpg {
                         break;
                     case 3: //OBJETOS MAGICOS
                         //MODIFICAR INVENTARIO
+                        //CUANDO USE UN OBJETO DEBO DEJAR VACIO EL ESPACIO EN DONDE SE ENCUENTRA.
                         System.out.println("INVENTARIO");
                         for (int i = 0; i < 10; i++) {
                             System.out.println(i+" "+inventario[i]);
@@ -250,10 +254,26 @@ public class juegoRpg {
                     int preciorandom= generador.nextInt(3)+1;
                     System.out.println(recompensas[objetoTaberna]+" Precio: "+preciorandom);
                 }
+                System.out.println("¿Quieres comprar algo? (SI/NO)");
+                String comprar=sc.next();
+                if (comprar.equalsIgnoreCase("si")) {
+                    System.out.println("¿Qué vas a comprar?");
+                    sc.nextLine();
+                    String palabrabuscada=sc.nextLine();
+                    for (String palabra : recompensas) {
+                        if (palabra.equals(palabrabuscada)) {
+                            inventario[contadorInventario]=palabrabuscada;
+                        }
+                    }
+                } else if (comprar.equalsIgnoreCase("NO")) {
+                    rpg=true;
+                }
+
 
             } else if (rptataberna.equalsIgnoreCase("no")) {
                 rpg=true;
             }
+            System.out.println("EL heroe sale de la taberna...");
         }
 
         }
