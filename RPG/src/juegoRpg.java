@@ -16,7 +16,7 @@ public class juegoRpg {
         int ps ;
         int pm ;
         double multiplicadordaño;
-        double dañoFisicio;
+        double dañoFisico;
         double dañoMagico;
         int oro;
 
@@ -26,9 +26,14 @@ public class juegoRpg {
         ps = 100;
         pm = 50;
         multiplicadordaño= 1.0;
-        dañoFisicio= 15;
+        dañoFisico= 15;
         dañoMagico=35;
         oro=0;
+        //Inventario al inicio del Juego para que siempre que iniciemos este sea el default
+        int pocionVida=1;
+        int pocionMagica=1;
+        int pocionDaño=1;
+        int pocionDañoextremo=1;
         //---- Creación de personaje ----
         boolean creacion = true;
         while (creacion) {
@@ -61,6 +66,16 @@ public class juegoRpg {
             System.out.println("COMIENZA EL COMBATE!!");
             while (combate) {
                 //COMBATE
+                int dañoEnemigo = generador.nextInt(10) + 10;
+                int ataqueEnemigo = generador.nextInt(5);
+                String attackEnemy = interaccion[ataqueEnemigo];
+                //^^^EL CODIGO DE ARRIBA ES ATAQUE ALEATORIO DEL ENEMIGO^^^
+                //RECOMPENSAS ALEATORIOS DESPUES DEL COMBATE
+                int vidaRecuperada;
+                int oroAleatorio;
+                int objetoAleatorio;
+                int contadorInventario=0;
+                //CODIGO DE MENU SE MUESTRA SIEMPRE DESPUES DE CADA INTERACCION
                 System.out.println("MENU DE OPCIONES");
                 System.out.println("1) Atacar\n2) Ataque Magico\n3) Objetos\n4) Rendirse");
                 int opcion = sc.nextInt();
@@ -70,36 +85,148 @@ public class juegoRpg {
                         int ataquep1 = generador.nextInt(5);
                         String attackP1 = interaccion[ataquep1];
                         if (attackP1.equalsIgnoreCase("normal")) {
-                            double dañoReal = dañoFisicio * multiplicadordaño;
+                            double dañoReal = dañoFisico * multiplicadordaño;
                             vidaAleatoriaEnemigo -= dañoReal;
                             System.out.println("Haz hecho un ataque normal");
                         } else if (attackP1.equalsIgnoreCase("esquiva")) {
                             System.out.println("El enemigo ha esquivado tu ataque");
                         } else if (attackP1.equalsIgnoreCase("critico")) {
-                            double dañocritico = (dañoFisicio * multiplicadordaño) * 1.5;
+                            double dañocritico = (dañoFisico * multiplicadordaño) * 1.5;
                             vidaAleatoriaEnemigo -= dañocritico;
                             System.out.println("Haz hecho un ataque critico");
                         }
                         System.out.println("Vida restante de " + enemigos[numAleatorio] + " " + vidaAleatoriaEnemigo);
+                        if (vidaAleatoriaEnemigo<=0){
+                            System.out.println("Haz derrotado a "+enemigos[numAleatorio]);
+                            oroAleatorio=generador.nextInt(5)+1;
+                            oro+=oroAleatorio;
+                            System.out.println("Haz recibido "+oro+" de oro");
+                            vidaRecuperada=generador.nextInt(25)+25;
+                            ps+=vidaRecuperada;
+                            objetoAleatorio=generador.nextInt(4);
+                            inventario[contadorInventario]+=recompensas[objetoAleatorio];
+                            System.out.println("Haz recibido una "+recompensas[objetoAleatorio]);
+                            System.out.println("Haz recuperado "+vidaRecuperada+" puntos de salud");
+                            System.out.println("Vida actual: "+ps);
+                            contadorInventario++;
+                            combate=false;
+                            break;
+                        }
                         //ENEMIGO ATACA
-                        int dañoEnemigo = generador.nextInt(10) + 10;
-                        int ataqueEnemigo = generador.nextInt(5);
-                        String attackEnemy = interaccion[ataqueEnemigo];
+
                         if (attackEnemy.equalsIgnoreCase("normal")) {
                             ps -= dañoEnemigo;
+                            System.out.println("Haz recibido ataque normal");
                         } else if (attackEnemy.equalsIgnoreCase("esquiva")) {
                             System.out.println("Haz esquivado el ataque de tu enemigo");
-                        } else if (attackP1.equalsIgnoreCase("critico")) {
+                        } else if (attackEnemy.equalsIgnoreCase("critico")) {
                             double dañocriticoEnemigo = (dañoEnemigo) * 2;
                             ps -= dañocriticoEnemigo;
                             System.out.println("Haz recibido un ataque critico");
                         }
                         System.out.println("Vida restante de xx " + ps);
                         System.out.println();
+                        if (ps<=0){
+                            System.out.println("Haz muerto");
+                            System.out.println("GAME OVER");
+                            combate=false;
+                            rpg=false;
+                        }
                         break;
-                    case 2:
+                    case 2: //ATAQUE MAGICO
+                        //ATAQUE DEL P1
+                        if (pm>=25){
+                            pm-=25;
+                            double dañomagicoreal=dañoMagico*multiplicadordaño;
+                            vidaAleatoriaEnemigo-=dañomagicoreal;
+                            System.out.println("Haz realizado un ataque magico que ha restado "+dañomagicoreal+" ps de tu enemigo");
+                            if (vidaAleatoriaEnemigo<=0){
+                                System.out.println("Haz derrotado a "+enemigos[numAleatorio]);
+                                oro+=5;
+                                combate=false;
+                                break;
+                            }
+                            System.out.println("Vida restante de " + enemigos[numAleatorio] + " " + vidaAleatoriaEnemigo);
+                            //ATAQUE DEL ENEMIGO
+                            if (attackEnemy.equalsIgnoreCase("normal")) {
+                                ps -= dañoEnemigo;
+                                System.out.println("Haz recibido ataque normal");
+                            } else if (attackEnemy.equalsIgnoreCase("esquiva")) {
+                                System.out.println("Haz esquivado el ataque de tu enemigo");
+                            } else if (attackEnemy.equalsIgnoreCase("critico")) {
+                                double dañocriticoEnemigo = (dañoEnemigo) * 2;
+                                ps -= dañocriticoEnemigo;
+                                System.out.println("Haz recibido un ataque critico");
+                            }
+
+                            System.out.println("Vida restante de xx " + ps);
+                            System.out.println();
+                            if (ps<=0){
+                                System.out.println("Haz muerto");
+                                System.out.println("GAME OVER");
+                                combate=false;
+                                rpg=false;
+                            }
+                        } else {
+                            System.out.println("Puntos de magia insuficientes");
+                        }
+
                         break;
+                    case 3: //OBJETOS MAGICOS
+                        System.out.println("INVENTARIO");
+                        System.out.println("1) Pocion vida: ");
+                        System.out.println("2) Pocion magica: ");
+                        System.out.println("3) Pocion de daño: ");
+                        System.out.println("4) Pocion de daño extremo: ");
+                        System.out.println("5) Salir");
+                        System.out.println("¿Qué eliges?");
+                        int respInventario= sc.nextInt();
+                        switch (respInventario){
+                            case 1:
+                                pocionVida-=1;
+                                ps+=25;
+                                System.out.println("Haz recuperado 25 puntos de salud");
+                                break;
+
+                            case 2:
+                                pocionMagica-=1;
+                                pm+=25;
+                                System.out.println("Haz recuperado 25 puntos de magia");
+                                break;
+
+                            case 3:
+                                pocionDaño-=1;
+                                dañoFisico+=5;
+                                System.out.println("Tu daño fisico ha aumentado permanentemente en 5");
+                                System.out.println("Tu daño fisico actual es: "+dañoFisico);
+                                break;
+
+                            case 4:
+                                pocionDañoextremo-=1;
+                                multiplicadordaño+=0.05;
+                                System.out.println("Tu multiplicador de daño  ha aumentado permanentemente en 0.05");
+                                System.out.println("Tu multiplicador de daño es: "+multiplicadordaño);
+                                break;
+
+                            case 5:
+                                break;
+                        }
+                        break;
+
+                    case 4:
+                        oro-=5;
+                        if (oro<=0){
+                            System.out.println("No tienes suficiente oro, Haz muerto");
+                            combate=false;
+                            rpg=false;
+                        } else {
+                            combate=false;
+                            break;
+                        }
+                        break;
+
                 }
+                pm+=10;
             }
 
 
