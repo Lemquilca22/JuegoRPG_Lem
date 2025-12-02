@@ -104,11 +104,16 @@ public class juegoRpg {
                             System.out.println("Has derrotado a "+enemigos[numAleatorio]);
                             oroAleatorio=generador.nextInt(5)+1;
                             oro+=oroAleatorio;
-                            System.out.println("Has recibido "+oro+" de oro");
+                            System.out.println("Has recibido "+oroAleatorio+" de oro");
                             vidaRecuperada=generador.nextInt(25)+25;
                             ps+=vidaRecuperada;
                             objetoAleatorio=generador.nextInt(4);
-                            inventario[contadorInventario]=recompensas[objetoAleatorio];
+                            for (int i = 0; i < inventario.length; i++) {
+                                if (inventario[i]==null){
+                                    inventario[i]=recompensas[objetoAleatorio];
+                                    break;
+                                }
+                            }
                             System.out.println("Has recibido una "+recompensas[objetoAleatorio]);
                             System.out.println("Has recuperado "+vidaRecuperada+" puntos de salud");
                             System.out.println("Vida actual: "+ps);
@@ -121,13 +126,13 @@ public class juegoRpg {
 
                         if (attackEnemy.equalsIgnoreCase("normal")) {
                             ps -= dañoEnemigo;
-                            System.out.println("Has recibido ataque normal");
+                            System.out.println("Tu enemigo hizo un ataque normal y recibiste "+dañoEnemigo+" de daño");
                         } else if (attackEnemy.equalsIgnoreCase("esquiva")) {
                             System.out.println("Has esquivado el ataque de tu enemigo");
                         } else if (attackEnemy.equalsIgnoreCase("critico")) {
                             double dañocriticoEnemigo = (dañoEnemigo) * 2;
                             ps -= dañocriticoEnemigo;
-                            System.out.println("Has recibido un ataque critico");
+                            System.out.println("Tu enemigo hizo un ataque critico y recibiste "+dañocriticoEnemigo+" de daño");
                         }
 //                        System.out.println("Vida restante de xx " + ps);
                         System.out.println();
@@ -149,7 +154,7 @@ public class juegoRpg {
                                 System.out.println("Has derrotado a "+enemigos[numAleatorio]);
                                 oroAleatorio=generador.nextInt(5)+1;
                                 oro+=oroAleatorio;
-                                System.out.println("Has recibido "+oro+" de oro");
+                                System.out.println("Has recibido "+oroAleatorio+" de oro");
                                 vidaRecuperada=generador.nextInt(25)+25;
                                 ps+=vidaRecuperada;
                                 objetoAleatorio=generador.nextInt(4);
@@ -170,13 +175,13 @@ public class juegoRpg {
                             //ATAQUE DEL ENEMIGO
                             if (attackEnemy.equalsIgnoreCase("normal")) {
                                 ps -= dañoEnemigo;
-                                System.out.println("Has recibido ataque normal");
+                                System.out.println("Tu enemigo hizo un ataque normal y recibiste "+dañoEnemigo+" de daño");
                             } else if (attackEnemy.equalsIgnoreCase("esquiva")) {
                                 System.out.println("Has esquivado el ataque de tu enemigo");
                             } else if (attackEnemy.equalsIgnoreCase("critico")) {
                                 double dañocriticoEnemigo = (dañoEnemigo) * 2;
                                 ps -= dañocriticoEnemigo;
-                                System.out.println("Has recibido un ataque critico");
+                                System.out.println("Tu enemigo hizo un ataque critico y recibiste "+dañocriticoEnemigo+" de daño");
                             }
 
 //                            System.out.println("Vida restante de xx " + ps);
@@ -189,6 +194,7 @@ public class juegoRpg {
                             }
                         } else {
                             System.out.println("Puntos de magia insuficientes");
+                            combate=true;
                         }
 
                         break;
@@ -200,30 +206,37 @@ public class juegoRpg {
                             System.out.println(i+") "+inventario[i]);
                         }
                         //BUSCAR EL OBJETO Y DEJARLO EN "NULL"
-                        System.out.println("¿Qué eliges?");
-                        sc.nextLine();
-                        int posicionInventario= sc.nextInt();
-                        if (inventario[posicionInventario].equalsIgnoreCase("Pocion de vida")){
-                            ps+=25;
-                            System.out.println("Has tomado una "+inventario[posicionInventario]);
-                            System.out.println("PS actual: "+ps);
-                            inventario[posicionInventario]=null;
-                        } else if (inventario[posicionInventario].equalsIgnoreCase("Pocion de magia")) {
-                            pm+=25;
-                            System.out.println("Has tomado una "+inventario[posicionInventario]);
-                            System.out.println("PM actual: "+pm);
-                            inventario[posicionInventario]=null;
-                        } else if (inventario[posicionInventario].equalsIgnoreCase("Pocion de daño")) {
-                            dañoFisico+=5;
-                            System.out.println("Has tomado una "+inventario[posicionInventario]);
-                            System.out.println("Daño ficico actual: "+dañoFisico);
-                            inventario[posicionInventario]=null;
-                        } else if (inventario[posicionInventario].equalsIgnoreCase("Pocion de daño extremo")) {
-                            multiplicadordaño+=0.05;
-                            System.out.println("Has tomado una "+inventario[posicionInventario]);
-                            System.out.println("Daño ficico actual: "+multiplicadordaño);
-                            inventario[posicionInventario]=null;
+                        System.out.println("¿Seguro que usarás una pocion? (SI/NO)");
+                        String pocion=sc.next();
+                        if (pocion.equalsIgnoreCase("Si")){
+                            System.out.println("¿Cúal eliges?");
+                            sc.nextLine();
+                            int posicionInventario= sc.nextInt();
+                            if (inventario[posicionInventario].equalsIgnoreCase("Pocion de vida")){
+                                ps+=25;
+                                System.out.println("Has tomado una "+inventario[posicionInventario]);
+                                System.out.println("PS actual: "+ps);
+                                inventario[posicionInventario]=null;
+                            } else if (inventario[posicionInventario].equalsIgnoreCase("Pocion de magia")) {
+                                pm+=25;
+                                System.out.println("Has tomado una "+inventario[posicionInventario]);
+                                System.out.println("PM actual: "+pm);
+                                inventario[posicionInventario]=null;
+                            } else if (inventario[posicionInventario].equalsIgnoreCase("Pocion de daño")) {
+                                dañoFisico+=5;
+                                System.out.println("Has tomado una "+inventario[posicionInventario]);
+                                System.out.println("Daño ficico actual: "+dañoFisico);
+                                inventario[posicionInventario]=null;
+                            } else if (inventario[posicionInventario].equalsIgnoreCase("Pocion de daño extremo")) {
+                                multiplicadordaño+=0.05;
+                                System.out.println("Has tomado una "+inventario[posicionInventario]);
+                                System.out.println("Daño ficico actual: "+multiplicadordaño);
+                                inventario[posicionInventario]=null;
+                            }
+                        } else if (pocion.equalsIgnoreCase("no")) {
+                            combate=true;
                         }
+
                         break;
 
                     case 4:

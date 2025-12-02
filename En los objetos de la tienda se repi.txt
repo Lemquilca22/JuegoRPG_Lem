@@ -32,5 +32,6 @@ if (inventario[i]=null) {
 break; <-- forzar 
 } 
 
-1. Fijarte en Recompensa aleatorio hacer un for para que guarde la recompensa donde este vacio!!!!
-2. Cuando usas el objeto el lugar toma el valor "null"
+1. Fijarte en Recompensa aleatorio hacer un for para que guarde la recompensa donde este vacio!!!! ✅
+2. Cuando usas el objeto el lugar toma el valor "null" ✅
+3. Preguntar siempre ¿quieres usar una pocion? (SI/NO) para permitir más interacción ✅
