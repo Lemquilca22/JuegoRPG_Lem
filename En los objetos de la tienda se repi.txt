@@ -15,3 +15,22 @@ hacer un contador dentro del for de buscar palabra para que cuandoe este sea 1, 
 deje tu inventario vacio. 
 
 debo reajustar en recompensas para que busque hasta que cumple que es "null"
+
+
+System.out.println("¿Qué vas a comprar?");
+                    sc.nextLine();
+                    String palabrabuscada=sc.nextLine();
+                    for (String palabra : recompensas) {
+                        if (palabra.equals(palabrabuscada)) {
+                            inventario[contadorInventario]=palabrabuscada;
+                        }
+                    }
+
+=null;
+for (compruebe array) 
+if (inventario[i]=null) {
+break; <-- forzar 
+} 
+
+1. Fijarte en Recompensa aleatorio hacer un for para que guarde la recompensa donde este vacio!!!!
+2. Cuando usas el objeto el lugar toma el valor "null"
