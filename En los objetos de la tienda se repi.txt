@@ -1,0 +1,17 @@
+En los objetos de la tienda se repiten los objetos- debe ser diferente. 
+la única forma de comprar es escribiendo la palabra como tal
+
+en el inventario debo encontrar la forma de que se guarde en las ranuras y no dejar ninguna vacia
+encontrar la forma en que cuando escoja se elimine de esa ranura.
+¿El array recompensas debería ser un int? de esa manera cuando pida algo ya sabre cual es
+y se almacenara 0 o + 1, etc. (OPCION SI NO SALE BIEN LA OTRA)
+
+Array tienda (String) 
+Definir precio para los objetos en base a los String (.equals) 
+
+String [] recompensas = {"Pocion de vida","Pocion magica","Pocion de daño","Pocion de daño extremo"};
+
+hacer un contador dentro del for de buscar palabra para que cuandoe este sea 1, ya no busque en otro y
+deje tu inventario vacio. 
+
+debo reajustar en recompensas para que busque hasta que cumple que es "null"
