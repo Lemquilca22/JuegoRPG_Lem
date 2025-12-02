@@ -194,16 +194,27 @@ public class juegoRpg {
                         for (int i = 0; i < 10; i++) {
                             System.out.println(i+" "+inventario[i]);
                         }
+                        //BUSCAR EL OBJETO Y DEJARLO EN "NULL"
                         System.out.println("¿Qué eliges?");
-                        String respInventario= sc.nextLine();
-                        for (String palabra : recompensas) {
-                            if (palabra.equals(respInventario)) {
-                                inventario[contadorInventario]=respInventario;
-                            }
+                        sc.nextLine();
+                        int posicionInventario= sc.nextInt();
+                        if (inventario[posicionInventario].equalsIgnoreCase("Pocion de vida")){
+                            ps+=25;
+                            System.out.println("Has tomado una "+inventario[posicionInventario]);
+                            System.out.println("PS actual: "+ps);
+                        } else if (inventario[posicionInventario].equalsIgnoreCase("Pocion de magia")) {
+                            pm+=25;
+                            System.out.println("Has tomado una "+inventario[posicionInventario]);
+                            System.out.println("PM actual: "+pm);
+                        } else if (inventario[posicionInventario].equalsIgnoreCase("Pocion de daño")) {
+                            dañoFisico+=5;
+                            System.out.println("Has tomado una "+inventario[posicionInventario]);
+                            System.out.println("Daño ficico actual: "+dañoFisico);
+                        } else if (inventario[posicionInventario].equalsIgnoreCase("Pocion de daño extremo")) {
+                            multiplicadordaño+=0.05;
+                            System.out.println("Has tomado una "+inventario[posicionInventario]);
+                            System.out.println("Daño ficico actual: "+multiplicadordaño);
                         }
-
-
-
                         break;
 
                     case 4:
