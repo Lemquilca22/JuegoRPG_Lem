@@ -192,7 +192,7 @@ public class juegoRpg {
                         //CUANDO USE UN OBJETO DEBO DEJAR VACIO EL ESPACIO EN DONDE SE ENCUENTRA.
                         System.out.println("INVENTARIO");
                         for (int i = 0; i < 10; i++) {
-                            System.out.println(i+" "+inventario[i]);
+                            System.out.println(i+") "+inventario[i]);
                         }
                         //BUSCAR EL OBJETO Y DEJARLO EN "NULL"
                         System.out.println("¿Qué eliges?");
@@ -243,7 +243,7 @@ public class juegoRpg {
                 for (int i = 0; i < 3; i++) {
                     int objetoTaberna= generador.nextInt(4);
                     taberna[posicionTaberna]=recompensas[objetoTaberna];
-                    System.out.println(taberna[posicionTaberna]);
+                    System.out.println(posicionTaberna+") "+taberna[posicionTaberna]);
                     if (taberna[posicionTaberna].equalsIgnoreCase("Pocion magica")){
                         System.out.println("precio: 2");
                     } else if (taberna[posicionTaberna].equalsIgnoreCase("Pocion de vida")) {
@@ -251,31 +251,31 @@ public class juegoRpg {
                     } else if (taberna[posicionTaberna].equalsIgnoreCase("Pocion de daño")) {
                         System.out.println("precio 3");
                     } else if (taberna[posicionTaberna].equalsIgnoreCase("Pocion de daño extremo")) {
-                        System.out.println("precio 2");
+                        System.out.println("precio 1");
                     }
                     posicionTaberna++;
                 }
                 System.out.println("¿Quieres comprar algo? (SI/NO)");
                 String comprar=sc.next();
                 if (comprar.equalsIgnoreCase("si")) {
-                    System.out.println("¿Qué vas a comprar?");
+                    System.out.println("¿Cuál vas a comprar?");
                     sc.nextLine();
-                    String palabrabuscada=sc.nextLine();
-                    for (String palabra : recompensas) {
-                        if (palabra.equals(palabrabuscada)) {
-                            inventario[contadorInventario]=palabrabuscada;
-                        }
-                    }
-                    if (palabrabuscada.equalsIgnoreCase("Pocion magica")){
-                        oro-=2;
-                    } else if (palabrabuscada.equalsIgnoreCase("Pocion de vida")) {
+                    int comprarenTaberna=sc.nextInt();
+                    if (taberna[comprarenTaberna].equalsIgnoreCase("Pocion magica")){
                         oro-=1;
-                    } else if (palabrabuscada.equalsIgnoreCase("Pocion de daño")) {
-                        oro-=3;
-                    } else if (palabrabuscada.equalsIgnoreCase("Pocion de daño extremo")) {
+                    } else if (taberna[comprarenTaberna].equalsIgnoreCase("Pocion de vida")) {
                         oro-=2;
+                    } else if (taberna[comprarenTaberna].equalsIgnoreCase("Pocion de daño")) {
+                        oro-=3;
+                    } else if (taberna[comprarenTaberna].equalsIgnoreCase("Pocion de daño extremo")) {
+                        oro-=1;
                     }
-                    System.out.println("Haz comprado una"+palabrabuscada);
+                    System.out.println("Has comprado una "+taberna[comprarenTaberna]);
+//                    for (String palabra : recompensas) {
+//                        if (palabra.equals(palabrabuscada)) {
+//                            inventario[contadorInventario]=palabrabuscada;
+//                        }
+//
                 } else if (comprar.equalsIgnoreCase("NO")) {
                     rpg=true;
                 }
