@@ -44,6 +44,9 @@ public class juegoRpg2 {
             //---- Creación de personaje ----
             boolean creacion = true;
             while (creacion) {
+                System.out.println("BIENVENIDO A LEM_RPG");
+                System.out.println("COMENCEMOS!!");
+                System.out.println();
                 System.out.println("CREACIÓN DEL PERSONAJE");
                 System.out.println("¿Cuál quieres que sea el nombre de tu personaje?");
                 String nomp1 = sc.nextLine();
@@ -304,7 +307,7 @@ public class juegoRpg2 {
                         System.out.println("Oro actual: " + oro);
                         System.out.println("¿Quieres comprar algo? (SI/NO)");
                         String comprar = sc.next();
-                        sc.nextLine();
+//                        sc.nextLine();
                         if (comprar.equalsIgnoreCase("si")) {
                             System.out.println("¿Cuál vas a comprar?");
                             sc.nextLine();
