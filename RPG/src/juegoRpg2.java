@@ -304,6 +304,7 @@ public class juegoRpg2 {
                         System.out.println("Oro actual: " + oro);
                         System.out.println("¿Quieres comprar algo? (SI/NO)");
                         String comprar = sc.next();
+                        sc.nextLine();
                         if (comprar.equalsIgnoreCase("si")) {
                             System.out.println("¿Cuál vas a comprar?");
                             sc.nextLine();
