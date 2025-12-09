@@ -24,6 +24,7 @@ Ya que hablamos de nuestro jugador y los enemigos, a continuación presento las 
 - Al inicio del juego debemos asignar un nombre y una clase a nuestro personaje. Si estamos conformes con nuestra elección y nuestro nombre podremos continuar, si no, podemos comenzar de 0.
 ### En la mazmorra
 - Al caminar por la mazmorra un enemigo (que puede ser un ogro, mago oscuro, goblin o slime) se cruza ante ti.
+INTERACCIÓN DEL PERSONAJE
 - Tienes un menú con 4 tipo de interacciones, 1) atacar 2) ataque magico 3) objetos 4) rendirse
 - Atacar: Haces un "ataque", este puede ser normal, que quitará 15 ps de vida de tu enemigo; un critico que hará que tu ataque normal se multplique x1.5 o puede ser esquivado por el enemigo.
 - Ataque magico: Realizas un ataque mágico que consume 25 PM e inflige daño al enemigo de: Daño mágico multiplicado por el multiplicador de daño (ESTE ATAQUE NO ESCOGE UNA OPCIÓN ALEATORIA).
@@ -32,5 +33,7 @@ Poción de vida: Sube 25 la vida actual
 Poción Mágica: Sube 25 los PM
 Poción de daño: Sube permanentemente el daño base en 5
 Poción  de daño extremo: Sube permanentemente el multiplicador 0.05
+- Rendirse: El combate termina, y resta 5 de oro. Si tienes menos de 5 de oro, y decides rendirte esto se entenderá como un GAME OVER y deberás comenzar de nuevo.
+- 
 
 
