@@ -5,7 +5,7 @@ Un RPG es un juego de rol ( Role-Playing Game) en el que los jugadores asumen el
 ## Caracteristicas del Juego 🤓
 El jugador puede escoger entre 4 clases de personajes (mago, guerrero, druida, elfo). Los enemigos, que aparecerán a lo largo del juego también pueden ser de diferentes tipos, por ejemplo Ogro, Goblin, Mago oscuro, Slime. 
 Ya que hablamos de nuestro jugador y los enemigos, a continuación presento las estadisticas de cada uno de ellos. 
-### Estadisticas del Jugador:
+### Estadisticas del Jugador
 - Vida del Personaje al inicio del juego: 100
 - PM(puntos de magia): 50 (máximo 100)
 - Multiplicador de daño: 1.0
@@ -20,4 +20,17 @@ Ya que hablamos de nuestro jugador y los enemigos, a continuación presento las 
 - La taberna es el lugar donde se puede comrpar objetos de la lista de recompensas:
 - El inventario tiene un espacio máximo de 10 objetos, las recompensas que obtengamos y los objetos que compremos se almacenan aquí.
 ## Como jugar 🕹️
-...
+### Personalizar personaje
+- Al inicio del juego debemos asignar un nombre y una clase a nuestro personaje. Si estamos conformes con nuestra elección y nuestro nombre podremos continuar, si no, podemos comenzar de 0.
+### En la mazmorra
+- Al caminar por la mazmorra un enemigo (que puede ser un ogro, mago oscuro, goblin o slime) se cruza ante ti.
+- Tienes un menú con 4 tipo de interacciones, 1) atacar 2) ataque magico 3) objetos 4) rendirse
+- Atacar: Haces un "ataque", este puede ser normal, que quitará 15 ps de vida de tu enemigo; un critico que hará que tu ataque normal se multplique x1.5 o puede ser esquivado por el enemigo.
+- Ataque magico: Realizas un ataque mágico que consume 25 PM e inflige daño al enemigo de: Daño mágico multiplicado por el multiplicador de daño (ESTE ATAQUE NO ESCOGE UNA OPCIÓN ALEATORIA).
+- Objetos: Muestra un menú con tu inventario, dependiendo del objeto hará una cosa u otra
+Poción de vida: Sube 25 la vida actual
+Poción Mágica: Sube 25 los PM
+Poción de daño: Sube permanentemente el daño base en 5
+Poción  de daño extremo: Sube permanentemente el multiplicador 0.05
+
+
