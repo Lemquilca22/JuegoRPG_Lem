@@ -24,6 +24,7 @@ Ya que hablamos de nuestro jugador y los enemigos, a continuación presento las 
 - Al inicio del juego debemos asignar un nombre y una clase a nuestro personaje. Si estamos conformes con nuestra elección y nuestro nombre podremos continuar, si no, podemos comenzar de 0.
 ### En la mazmorra
 - Al caminar por la mazmorra un enemigo (que puede ser un ogro, mago oscuro, goblin o slime) se cruza ante ti.
+  
 INTERACCIÓN DEL PERSONAJE
 - Tienes un menú con 4 tipo de interacciones, 1) atacar 2) ataque magico 3) objetos 4) rendirse
 - Atacar: Haces un "ataque", este puede ser normal, que quitará 15 ps de vida de tu enemigo; un critico que hará que tu ataque normal se multplique x1.5 o puede ser esquivado por el enemigo.
