@@ -35,3 +35,8 @@ break; <-- forzar
 1. Fijarte en Recompensa aleatorio hacer un for para que guarde la recompensa donde este vacio!!!! ✅
 2. Cuando usas el objeto el lugar toma el valor "null" ✅
 3. Preguntar siempre ¿quieres usar una pocion? (SI/NO) para permitir más interacción ✅
+
+
+Corregir los puntos de magia, ya que estan aumentando aunque no ataquemos. ✅
+Mostrar solo los objetos disponibles 
+Aumentar la vida de los enemigos después del combate.

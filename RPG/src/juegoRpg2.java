@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class juegoRpg {
+public class juegoRpg2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         //==== Generador de numeros random ====
@@ -38,6 +38,9 @@ public class juegoRpg {
             int pocionMagica = 1;
             int pocionDaño = 1;
             int pocionDañoextremo = 1;
+            //STATS DEL ENEMIGO BASE
+            int vidaMAXEnemigo = 60;
+            int vidaMinEnemigo=40;
             //---- Creación de personaje ----
             boolean creacion = true;
             while (creacion) {
@@ -64,9 +67,8 @@ public class juegoRpg {
             while (rpg) {
                 boolean combate = true;
                 int numAleatorio = generador.nextInt(5);
-                int vidaMAXEnemigo = 60;
-                int vidaMinEnemigo = 40;
                 int vidaAleatoriaEnemigo = generador.nextInt(vidaMAXEnemigo) + vidaMinEnemigo;
+                System.out.println("La vida minima de tu enemigo es: "+vidaMinEnemigo);
                 System.out.println("Mientras caminabas por las mazmorras un " + enemigos[numAleatorio] + " se cruzó ante ti!");
                 System.out.println("Stats enemigo" + "\nVida: " + vidaAleatoriaEnemigo);
                 System.out.println("COMIENZA EL COMBATE!!");
