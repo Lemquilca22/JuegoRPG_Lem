@@ -51,7 +51,7 @@ INTERACCIÓN DEL ENEMIGO:
 
 ### Fin del juego?
 - El objetivo es sobrevivir lo máximo posible, pero si nos rendimos sin oro, o nos derrota un enemigo deberemos ir al inicio, pero bueno, eso lo decides tu.
-- A DIVERTIRSE!!!!1
+- A DIVERTIRSE!!!!
 
 
 
