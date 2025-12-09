@@ -47,9 +47,9 @@ INTERACCIÓN DEL ENEMIGO:
 ### Taberna
 - Tras una larga batalla, el héroe ve a lo lejos una taberna” Junto a un mensaje de “Entrar (SI/NO)”
 - Al entrar en la taberna se mostrará un menú con 3 objetos aleatorios de la lista de recompensas junto a un precio aleatorio.
-- El jugador puede comprar solamente un objeto de la tienda si tiene el dinero suficiente, si no quiere comprar seguirá el juego con normalidad y entrara en otro combate.
+- Puedes comprar solamente un objeto de la tienda si tienes el dinero suficiente, si no quieres comprar seguirás el juego con normalidad y entrarás en otro combate.
 
-### Fin del juego?
+### ¿Fin del juego?
 - El objetivo es sobrevivir lo máximo posible, pero si nos rendimos sin oro, o nos derrota un enemigo deberemos ir al inicio, pero bueno, eso lo decides tu.
 - A DIVERTIRSE!!!!
 
