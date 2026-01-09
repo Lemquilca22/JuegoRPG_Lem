@@ -53,28 +53,33 @@ public class carrito {
                     carrito[5] += 1;
                     break;
             }
-            System.out.println("Usted ha añadido 1 " + productos[respuesta] +" "+ " a su carrito");
-            System.out.println("¿Desea añadir un producto más? (SI/NO)");
-            String siNo=sc.next();
-            int sumatotal=0;
-            if (siNo.equalsIgnoreCase("SI")){
-                añadirCarrito=true;
-            } else {
-                añadirCarrito=false;
-                System.out.println("TICKET");
-                for (int i = 1; i < 6; i++) {
-                    int sumaprecio=0;
-                    if (carrito[i]>0){
-                        System.out.println(productos[i]+" x"+carrito[i]+" "+precio[i]+"€");
-                        //OPERACION DE SUMA DEL PRECIO
-                        sumaprecio = precio[i]*carrito[i];
-                        sumatotal+=sumaprecio;
+            if (respuesta!=0){
+                System.out.println("Usted ha añadido 1 " + productos[respuesta] +" "+ " a su carrito");
+                System.out.println("¿Desea añadir un producto más? (SI/NO)");
+                String siNo=sc.next();
+                int sumatotal=0;
+                if (siNo.equalsIgnoreCase("SI")){
+                    añadirCarrito=true;
+                } else {
+                    añadirCarrito=false;
+                    System.out.println("TICKET");
+                    for (int i = 1; i < 6; i++) {
+                        int sumaprecio=0;
+                        if (carrito[i]>0){
+                            System.out.println(productos[i]+" x"+carrito[i]+" "+precio[i]+"€");
+                            //OPERACION DE SUMA DEL PRECIO
+                            sumaprecio = precio[i]*carrito[i];
+                            sumatotal+=sumaprecio;
 
+                        }
                     }
+                    System.out.println("TOTAL: "+sumatotal+"€");
+                    System.out.println("GRACIAS POR SU COMPRA!");
                 }
-                System.out.println("TOTAL: "+sumatotal+"€");
-                System.out.println("GRACIAS POR SU COMPRA!");
+            } else {
+                añadirCarrito=true;
             }
+
         }
 
     }
