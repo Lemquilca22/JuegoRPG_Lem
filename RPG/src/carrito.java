@@ -8,13 +8,14 @@ public class carrito {
         while (comprobar) {
             try {
                 respuesta = sc.nextInt();
+                comprobar=false;
             } catch (InputMismatchException e){
                 System.out.println("Error, los datos no son numericos, vuelve a intentarlo");
                 sc.next();
             } catch (Exception e) {
                 System.out.println(e);
             }
-            comprobar=false;
+
         }
         return respuesta;
     }
@@ -53,7 +54,7 @@ public class carrito {
                     carrito[5] += 1;
                     break;
             }
-            if (respuesta!=0){
+
                 System.out.println("Usted ha añadido 1 " + productos[respuesta] +" "+ " a su carrito");
                 System.out.println("¿Desea añadir un producto más? (SI/NO)");
                 String siNo=sc.next();
@@ -76,9 +77,7 @@ public class carrito {
                     System.out.println("TOTAL: "+sumatotal+"€");
                     System.out.println("GRACIAS POR SU COMPRA!");
                 }
-            } else {
-                añadirCarrito=true;
-            }
+
 
         }
 
